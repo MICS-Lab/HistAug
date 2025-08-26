@@ -51,14 +51,16 @@ Each repo includes a short README and a config embedded in the model card. Load 
 import torch
 from transformers import AutoModel
 
-# Load HistAug
-model_id = "sofieneb/histaug-virchow2"
-model = AutoModel.from_pretrained(model_id, trust_remote_code=True)
+device = "cuda" if torch.cuda.is_available() else "cpu"
 
-# Example: patch embeddings from Virchow2
+# Load HistAug (CONCH v1.5 latent augmentation model)
+model_id = "sofieneb/histaug-conch_v15"
+model = AutoModel.from_pretrained(model_id, trust_remote_code=True).to(device)
+
+# Example: patch embeddings from CONCH v1.5
 num_patches = 50000
-embedding_dim = 2560
-patch_embeddings = torch.randn((num_patches, embedding_dim), device="cuda")
+embedding_dim = 768
+patch_embeddings = torch.randn((num_patches, embedding_dim), device=device)
 
 # Sample augmentation parameters
 # mode="wsi_wise" applies the same transformation across the whole slide
@@ -71,6 +73,7 @@ aug_params = model.sample_aug_params(
 
 # Apply augmentation in latent space
 augmented_embeddings = model(patch_embeddings, aug_params)
+
 print(augmented_embeddings.shape)  # (num_patches, embedding_dim)
 ```
 
