@@ -1,0 +1,82 @@
+General:
+    comment: 
+    seed: 2025
+    precision: 16-mixed 
+    epochs: &epoch 2000
+    grad_acc: 1
+    server: train # 'train' or 'test'
+    log_path: logs/
+    strategy: "auto"
+    devices: 1
+    accelerator: "gpu"
+    ckpt_path_resume_training: null # Path to a checkpoint to resume training from. Set to null to start training from scratch.
+Data:
+    dataset_name: patch_dataset
+    shuffle_data: True
+    data_path: /path/to/WSI_data # Root folder containing your WSIs.
+    data_path_extension: svs # Extension of the WSI files (e.g., svs, ndpi, tiff).
+    patching:
+        blca: /path/to/BLCA/patches # Default path to BLCA patches (extracted using CLAM toolbox).
+        brca: /path/to/BRCA/patches # Default path to BRCA patches (extracted using CLAM toolbox).
+        lusc: /path/to/LUSC/patches # Default path to LUSC patches (extracted using CLAM toolbox).
+    
+    Transforms:
+        transform_class: PatchAugmentation
+        parameters:
+            rotation: 0.75 # Probability to apply a rotation.
+            h_flip: 0.75 # Probability to apply a horizontal flip.
+            v_flip: 0.75 # Probability to apply a vertical flip.
+            erosion: 0.75 # Probability to apply an erosion.
+            dilation: 0.75 # Probability to apply a dilation.
+            crop: 0.75 # Probability to apply a crop.
+            gaussian_blur: 0.75 # Probability to apply gaussian blurring.
+            hed: [-0.5, 0.5] # Range of HED transform parameters.
+            hue: [-0.5, 0.5] # Range of hue transform parameters.
+            brightness: [-0.5, 0.5] # Range of brightness transform parameters.
+            contrast: [-0.5, 0.5]  # Range of contrast transform parameters.
+            saturation: [-0.5, 0.5] # Range of saturation transform parameters.
+            gamma: [-0.5, 0.5] # Range of gamma transform parameters.
+
+    train_dataloader:
+        batch_size: 32 
+        num_workers: 25
+
+    test_dataloader:
+        batch_size: 32
+        num_workers: 10
+
+Foundation_model:
+    name: CONCH
+    ckpt_path: null # Path to pytorch_model.bin. If null, the default checkpoint will be used from Hugging Face cache (~/.cache).
+
+Model:
+    name: histaug_model
+    input_dim: 512
+    chunk_size: 4
+    depth: 16
+    num_heads: 8
+    mlp_ratio: 4
+    use_transform_pos_embeddings: true
+    positional_encoding_type: learnable
+
+Optimizer:
+    name: AdamW
+    parameters:
+        lr: 5e-4
+        weight_decay: 1e-5
+
+Scheduler:
+    name: null # No learning rate scheduler
+
+    # Example of learning rate scheduler : 
+    # name: CosineAnnealingLR
+    # parameters:
+    #     T_max: 500
+    #     eta_min: 5e-4
+    #     last_epoch: -1
+Loss:
+    base_loss: MSELoss
+
+    # Example using combination of losses
+    # base_loss: [CosineSimilarityLoss, SmoothL1Loss]
+    # loss_weights: [1, 1]

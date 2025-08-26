@@ -1,0 +1,29 @@
+from enum import Enum
+
+
+class TransformCategoryConstants(Enum):
+    DISCRETE_TRANSFORMATIONS = [
+        "rotation",
+        "h_flip",
+        "v_flip",
+        "erosion",
+        "dilation",
+        "gaussian_blur",
+        "crop",
+    ]
+
+    CONTINOUS_TRANSFORMATIONS = [
+        "hed",
+        "brightness",
+        "contrast",
+        "saturation",
+        "gamma",
+        "hue",
+    ]
+
+
+class NormConstants(Enum):
+    IMAGENET_MEAN = [0.485, 0.456, 0.406]
+    IMAGENET_STD = [0.229, 0.224, 0.225]
+    OPENAI_MEAN = [0.48145466, 0.4578275, 0.40821073]
+    OPENAI_STD = [0.26862954, 0.26130258, 0.27577711]

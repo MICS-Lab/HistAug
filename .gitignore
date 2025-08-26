@@ -6,6 +6,7 @@ __pycache__/
 # logs and bin
 logs/
 bin/
+*.egg-info/
 
 # Jupyter Notebook
 .ipynb_checkpoints
