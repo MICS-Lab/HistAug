@@ -45,7 +45,7 @@ You can load pretrained HistAug models from the Hugging Face Hub. We provide var
 * [H-optimus-1](https://huggingface.co/bioptimus/H-optimus-1) → [`sofieneb/histaug-hoptimus1`](https://huggingface.co/sofieneb/histaug-hoptimus1)
 * [UNI](https://www.nature.com/articles/s41591-024-02857-3) → [`sofieneb/histaug-uni`](https://huggingface.co/sofieneb/histaug-uni)
 
-Each repo includes a short README and a config embedded in the model card. Load any model with `transformers`. Example with **Virchow2**:
+Each repo includes a short README and a config embedded in the model card. Load any model with `transformers`. Example with **CONCH v1.5]**:
 
 ```python
 import torch
