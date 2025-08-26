@@ -18,7 +18,7 @@
 
 By conditioning on explicit transformation parameters (e.g., hue shift, erosion, HED color transform), HistAug produces realistic augmented embeddings that **preserve semantic content** while mimicking the effect of corresponding image-level augmentations.
 
-In practice, HistAug variants faithfully reconstruct ground-truth augmented embeddings with high cosine similarity at **10X, 20X, and 40X magnifications** (see the [performance table](#average-performance-of-each-model)).
+In practice, HistAug variants faithfully reconstruct ground-truth augmented embeddings with high cosine similarity at **10X, 20X, and 40X magnifications** (see the [performance table](#average-performance-across-modelsl)).
 
 This enables Multiple Instance Learning (MIL) models to benefit from:
 
