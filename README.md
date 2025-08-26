@@ -22,7 +22,7 @@ In practice, HistAug variants faithfully reconstruct ground-truth augmented embe
 
 This enables Multiple Instance Learning (MIL) models to benefit from:
 
-* ⚡ **Faster augmentation** (orders of magnitude faster than image-space transforms)
+* ⚡ **Faster augmentation**
 * 🧠 **Low memory usage** (up to 200k patches in parallel on a single V100 32GB)
 * 🎛 **Controllable, WSI-consistent augmentations** (bag-wise or patch-wise conditioning)
 
