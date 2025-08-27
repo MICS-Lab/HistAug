@@ -9,7 +9,7 @@ Contributions to this project are released to the public under the project's ope
 
 ## How you can contribute
 
-- 🧪 **Train HistAug on new foundation models** (e.g., UNI, CONCH, Virchow, Phikon, etc.) and share the trained weights with the community.  
+- 🧪 **Train HistAug on new foundation models** (e.g. Phikon, Midnight, Keep, Hibou, ...) and share the trained weights with the community.  
 - 🛠️ Improve the codebase (speed, memory efficiency, APIs, documentation).  
 - 🐛 Report and fix bugs.  
 - 📖 Improve documentation or tutorials.  
