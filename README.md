@@ -189,13 +189,11 @@ cross_transformer = AutoModel.from_pretrained(
 If our work contributes to your research, or if you incorporate part of this code, please consider citing our paper:
 
 ```bibtex
-@misc{boutaj2025controllablelatentspaceaugmentation,
-      title={Controllable Latent Space Augmentation for Digital Pathology}, 
-      author={Sofiène Boutaj and Marin Scalbert and Pierre Marza and Florent Couzinie-Devy and Maria Vakalopoulou and Stergios Christodoulidis},
-      year={2025},
-      eprint={2508.14588},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2508.14588}, 
+@inproceedings{boutaj2025controllable,
+  title={Controllable Latent Space Augmentation for Digital Pathology},
+  author={Boutaj, Sofi{\`e}ne and Scalbert, Marin and Marza, Pierre and Couzinie-Devy, Florent and Vakalopoulou, Maria and Christodoulidis, Stergios},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={22165--22174},
+  year={2025}
 }
 ```
